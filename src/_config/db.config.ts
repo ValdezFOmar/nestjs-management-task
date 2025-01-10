@@ -1,7 +1,8 @@
 import { Pool } from 'pg';
 
-export const poolPromise = () => {
-  const settings = {
+export function createPool() {
+  console.log('===== POOL CREATED =====');
+  return new Pool({
     host: process.env.DB_HOST,
     database: process.env.DB_DATABASE,
     user: process.env.DB_USER,
@@ -14,6 +15,5 @@ export const poolPromise = () => {
     idleTimeoutMillis: 1000,
     connectionTimeoutMillis: 1000,
     maxUses: 7500,
-  };
-  return new Pool(settings);
-};
+  });
+}

@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { poolPromise } from 'src/_config/db.config';
+import { createPool } from 'src/_config/db.config';
 import { BusinessType } from './business.model';
 import { QueryResult } from 'pg';
 
 @Injectable()
 export class BusinessService {
   async getAllTypes(): Promise<BusinessType[]> {
-    const pool = poolPromise();
+    const pool = createPool();
     const client = await pool.connect();
 
     try {

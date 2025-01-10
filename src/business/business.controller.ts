@@ -7,7 +7,7 @@ export class BusinessController {
   constructor(private businessService: BusinessService) {}
 
   @Get('types')
-  async getAllTypes(): Promise<BusinessType[]> {
-    return await this.businessService.getAllTypes();
+  getAllTypes(): Promise<BusinessType[]> {
+    return this.businessService.getAllTypes();
   }
 }
